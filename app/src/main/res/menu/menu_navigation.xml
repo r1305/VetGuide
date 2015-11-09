@@ -1,0 +1,45 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <item
+        android:id="@+id/principal"
+        android:title="Principal"
+        app:rippleColor="#00BCD5"
+        />
+
+    <item
+        android:id="@+id/explorar"
+        android:title="Explorar"
+        app:rippleColor="#00BCD5"
+        />
+
+    <item
+        android:id="@+id/hoja_medica"
+        android:title="Hoja Medica"
+        app:rippleColor="#00BCD5"
+        />
+    <item
+        android:id="@+id/favoritos"
+        android:title="Mis Favoritos"
+        app:rippleColor="#00BCD5"
+        />
+    <item
+        android:id="@+id/calendario"
+        android:title="Calendario"
+        app:rippleColor="#00BCD5"
+        />
+
+    <item
+        android:id="@+id/emergencia"
+        android:title="Emergencia"
+        app:rippleColor="#00BCD5" />
+    <item
+        android:id="@+id/mapa"
+        android:title="Mapa"
+        app:rippleColor="#00BCD5" />
+
+
+</menu>

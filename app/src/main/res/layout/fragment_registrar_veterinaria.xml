@@ -1,0 +1,205 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF6E6">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.vetguide.RegistrarVeterinariaFragment"
+    android:orientation="vertical"
+    android:background="#FFF6E6">
+
+    <LinearLayout
+        android:layout_width="263dp"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/llamadagroomers"/>
+        <TextView
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:text="Descarga el logo de tu veterinaria y completa los siguientes datos"
+            android:id="@+id/textView5"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datos generales:"
+        android:id="@+id/textView6"
+        android:textColor="#FF9500"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eteNombreVet"
+        android:hint="Nombre"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eteDireccionVet"
+        android:hint="Dirección"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eteDistritoVet"
+        android:hint="Distrito"
+        android:background="#FFFFFF"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Ubicar"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/mybutton"
+        android:id="@+id/buttonMapear"
+        />
+</LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eteTelefonoVet"
+        android:hint="Teléfono"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Días de atención:"
+        android:id="@+id/textView7"
+        android:textColor="#FF9500"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="De "/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:id="@+id/eteDiaInicioVet"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" a "/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:id="@+id/eteDiaFinVet"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horario de atención:"
+        android:id="@+id/textView13"
+        android:textColor="#FF9500"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="De "/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/eteHoraInicioVet"
+            android:background="#FFFFFF"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" a "/>
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/eteHoraFinVet"
+            android:background="#FFFFFF"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:background="@drawable/mybutton"
+            android:id="@+id/buttonCancelar3" />
+
+        <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Siguiente"
+    android:id="@+id/buttonSiguiente3"
+    android:background="@drawable/mybutton"
+    android:layout_marginLeft="50dp"/>
+
+
+</LinearLayout>
+    </LinearLayout>
+</ScrollView>

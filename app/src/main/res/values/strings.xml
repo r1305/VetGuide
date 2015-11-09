@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">VetGuide</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_registrar">RegistrarActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_registro">Paso 1 de 3</string>
+    <string name="title_activity_fblogin_result">FBLoginResult</string>
+
+    <string name="parse_app_id">nn1ws1fOCe0X5qjc4AeZUhiyLyqv4grd2VKHZH7W</string>
+    <string name="parse_client_key">pBx1g78sn4icaH0ROV8GQ8RurNt5rUDC39BheFwv</string>
+    <string name="facebook_app_id">416312735230224</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_registro_mascota">Paso 2 de 3</string>
+    <string name="title_activity_registrar_datos_mascota">Paso 3 de 3</string>
+    <string name="title_activity_mascotas_vet">Paso 2 de 4</string>
+    <string name="title_activity_registro_servicios">Paso 3 de 4</string>
+    <string name="title_activity_registro_doctor">Paso 4 de 4</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+
+    <string name="title_activity_detella_veterinaria">DetellaVeterinaria</string>
+    <string name="title_activity_pedir_cita">PedirCitaActivity</string>
+
+
+    <string name="title_activity_maps">Map</string>
+
+
+
+</resources>

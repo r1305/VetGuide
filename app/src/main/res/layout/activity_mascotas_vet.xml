@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.user.vetguide.MascotasVetActivity"
+    android:orientation="vertical"
+    android:background="#FFF6E6">
+
+    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*Cuéntanos con que clase de mascotas trabajan. Pueden seleccionar más de un tipo de animal. Posteriormente, podrás editar esta información desde tu perfil."
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView8"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Todas"
+        android:id="@+id/tviSeleccionarTodas"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textColor="#FF9500"
+        />
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="300dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Caninos"
+        android:id="@+id/cbCaninos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Felinos"
+        android:id="@+id/cbFelinos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Roedores"
+        android:id="@+id/cbRoedores"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Conejos"
+        android:id="@+id/cbConejos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Peces"
+        android:id="@+id/cbPeces"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Aves"
+        android:id="@+id/cbAves"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Aracnidos"
+        android:id="@+id/cbAracnidos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Tortugas"
+        android:id="@+id/cbTortugas"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Iguanas"
+        android:id="@+id/cbIguanas"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Serpientes"
+        android:id="@+id/cbSerpientes"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Monos"
+        android:id="@+id/cbMonos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Auquenidos"
+        android:id="@+id/cbAuquenidos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Erizos"
+        android:id="@+id/cbErizos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Chanchos"
+        android:id="@+id/cbChanchos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    </LinearLayout>
+</ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:background="@drawable/mybutton"
+            android:id="@+id/buttonCancelar4" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Siguiente"
+            android:id="@+id/buttonSiguiente4"
+            android:background="@drawable/mybutton"
+            android:layout_marginLeft="50dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

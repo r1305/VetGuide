@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFF6E6"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="236dp"
+        android:layout_height="181dp"
+        android:src="@drawable/vetguidelogin"
+        android:id="@+id/iviLogo"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eteUsername"
+        android:hint="Usuario"
+        android:layout_marginTop="50dp"
+        android:background="#FFFFFF"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/etePassword"
+        android:hint="****"
+        android:background="#FFFFFF"
+        android:layout_marginTop="20dp"
+        />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/butLogin"
+        android:background="@drawable/mybutton"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Login Facebook"
+        android:id="@+id/butLoginFacebook"
+        android:background="@drawable/mybutton"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Regístrate"
+        android:id="@+id/butRegistrar"
+        android:onClick="clickRegistrar"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/mybutton"
+        android:layout_weight="1"
+        />
+</LinearLayout>
+
+</LinearLayout>
+
