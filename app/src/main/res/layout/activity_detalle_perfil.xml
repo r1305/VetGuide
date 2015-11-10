@@ -49,30 +49,45 @@
                     android:gravity="center_horizontal"
                     android:layout_weight="1"
                     >
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Raul Lavarte"
-                        android:id="@+id/tviNombreDoc"
-                        android:textSize="20dp" />
-                    <TextView
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre: "
+                            android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Felinos"
+                            android:id="@+id/name_profile"
+                            android:textSize="20dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Felinos"
-                        android:id="@+id/tviEspecialidadDoc"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lun - Dom"
-                        android:id="@+id/tviDiasAtencionDoc"
-                        android:textSize="20dp" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="8:00 am - 12:00 pm"
-                        android:id="@+id/tviHorasAtencionDoc"
-                        android:textSize="20dp" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email: "
+                            android:textSize="20dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Felinos"
+                            android:id="@+id/email_profile"
+                            android:textSize="20dp" />
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -84,6 +99,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@android:drawable/ic_input_add" />
 
 </android.support.design.widget.CoordinatorLayout>

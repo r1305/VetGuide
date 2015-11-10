@@ -35,6 +35,18 @@ public class RegistrarUsuarioFragment extends Fragment {
     private static final int PICK_IMAGE = 2000;
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ( requestCode == PICK_IMAGE) {
+            Uri imageUri = data.getData();
+            img.setImageURI(imageUri);
+            Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
+            new BitmapToByteArray().execute(bitmap);
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -42,6 +54,7 @@ public class RegistrarUsuarioFragment extends Fragment {
         img=(ImageView)view.findViewById(R.id.imageView);
         final Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
         new clases.BitmapToByteArray().execute(bitmap);
+        img.setImageBitmap(bitmap);
 
 
         butSiguiente=(Button)view.findViewById(R.id.buttonSiguiente);
@@ -97,9 +110,6 @@ public class RegistrarUsuarioFragment extends Fragment {
                     }
                 });
 
-
-
-
             }
         });
         img.setOnClickListener(new View.OnClickListener() {
@@ -118,9 +128,8 @@ public class RegistrarUsuarioFragment extends Fragment {
                 getActivity().finish();
             }
         });
+
         return view;
-
-
 
     }
 
@@ -130,6 +139,10 @@ public class RegistrarUsuarioFragment extends Fragment {
                         android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
     }
+
+
+
+
 
 
 

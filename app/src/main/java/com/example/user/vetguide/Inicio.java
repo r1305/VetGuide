@@ -1,6 +1,7 @@
 package com.example.user.vetguide;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.GetDataCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -41,16 +46,21 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
     protected void onCreate(final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_inicio);
 
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.menu);
+        nav=(NavigationView)findViewById(R.id.navigation);
+        View headerLayout =nav.inflateHeaderView(R.layout.nav_header);
+        img = (CircleImageView)headerLayout.findViewById(R.id.nav_img);
+        txt_nav=(TextView)headerLayout.findViewById(R.id.nav_txt);
 
 
 
         setSupportActionBar(toolbar);
 
-        nav=(NavigationView)findViewById(R.id.navigation);
+
         dl=(DrawerLayout)findViewById(R.id.drawer_layout);
 
 
@@ -67,36 +77,35 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
         });
         ParseUser u=ParseUser.getCurrentUser();
         Toast.makeText(this,"Bienvenido "+u.getString("nombre"),Toast.LENGTH_LONG).show();
-        img=(CircleImageView)findViewById(R.id.nav_img);//esto no encuentra
-        txt_nav=(TextView)findViewById(R.id.nav_header);//esto no encuentra
+
         //son del nav_header
         txt_nav.setText(u.getString("nombre"));
-        //ParseFile applicantResume = (ParseFile)currentUser.getParseFile("foto");
+        ParseFile applicantResume = (ParseFile)u.getParseFile("foto");
 
-//        applicantResume.getDataInBackground(new GetDataCallback() {
-//            public void done(byte[] data, ParseException e) {
-//                if (e == null) {
-//
-//                    Toast.makeText(Inicio.this,"La foto si carga",Toast.LENGTH_LONG).show();
-//
-//                    //img.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
-//
-//
-//                } else {
-//                    // something went wrong
-//
-//
-//                }
-//            }
-//        });
+        applicantResume.getDataInBackground(new GetDataCallback() {
+            public void done(byte[] data, ParseException e) {
+                if (e == null) {
 
-//        img.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(Inicio.this, DetallePerfil.class);
-//                startActivity(i);
-//            }
-//        });
+                    Toast.makeText(Inicio.this,"La foto si carga",Toast.LENGTH_LONG).show();
+
+                    img.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
+
+
+                } else {
+                    // something went wrong
+
+
+                }
+            }
+        });
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Inicio.this, DetallePerfil.class);
+                startActivity(i);
+            }
+        });
 
         RecyclerView rvi=(RecyclerView)findViewById(R.id.my_recycler_view);
         rvi.setLayoutManager(new LinearLayoutManager(this));
@@ -175,6 +184,13 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
 
                 Toast.makeText(this,"Mapa",Toast.LENGTH_LONG).show();
                 Intent i=new Intent(Inicio.this,MapsActivity.class);
+                startActivity(i);
+                return true;
+
+            case R.id.perfil:
+
+                Toast.makeText(this,"Mapa",Toast.LENGTH_LONG).show();
+                i=new Intent(Inicio.this,DetallePerfil.class);
                 startActivity(i);
                 return true;
 
