@@ -56,7 +56,6 @@ public class RegistrarUsuarioFragment extends Fragment {
         new clases.BitmapToByteArray().execute(bitmap);
         img.setImageBitmap(bitmap);
 
-
         butSiguiente=(Button)view.findViewById(R.id.buttonSiguiente);
 
         nombre = (EditText)view.findViewById(R.id.eteNombreUsuario);
