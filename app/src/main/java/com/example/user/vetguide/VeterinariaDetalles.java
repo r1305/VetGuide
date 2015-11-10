@@ -2,9 +2,6 @@ package com.example.user.vetguide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,10 +13,9 @@ import com.parse.FindCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.text.ParseException;
 import java.util.List;
 
-public class DetellaVeterinaria extends AppCompatActivity {
+public class VeterinariaDetalles extends AppCompatActivity {
 
     TextView nombrevetdetalle,direccionvetdetalle,telefonovetdetalle,horariovetdetalle, nombredocdetalle,especialidaddocdetalle,
             diasatenciondocdetalle,horasatenciondocdetalle;
@@ -43,7 +39,7 @@ public class DetellaVeterinaria extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i=new Intent(DetellaVeterinaria.this,Inicio.class);
+                Intent i=new Intent(VeterinariaDetalles.this,Inicio.class);
                 startActivity(i);
             }
         });
@@ -110,7 +106,7 @@ public class DetellaVeterinaria extends AppCompatActivity {
         pedircita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(DetellaVeterinaria.this , PedirCitaActivity.class);
+                Intent i= new Intent(VeterinariaDetalles.this , PedirCitaActivity.class);
                 i.putExtra("nombreVetCita",nombrevet);
                 i.putExtra("idVet",codigovetdetalle);
                 i.putExtra("idUsuario",idUsuario);
@@ -122,7 +118,7 @@ public class DetellaVeterinaria extends AppCompatActivity {
         pedirservicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast t = Toast.makeText(DetellaVeterinaria.this,"Funcionalidad pronto",Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(VeterinariaDetalles.this,"Funcionalidad pronto",Toast.LENGTH_SHORT);
                 t.show();
             }
         });

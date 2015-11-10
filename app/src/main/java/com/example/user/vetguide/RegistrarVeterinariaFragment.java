@@ -54,6 +54,11 @@ public class RegistrarVeterinariaFragment extends Fragment {
             public void onClick(View view) {
                 veterinaria = new ParseObject("Veterinaria");
 
+                LatLng c=getLocationFromAddress(getContext(),direccionvete.getText().toString()+","+distritovete.getText().toString());
+                longitud=c.longitude;
+                latitud=c.latitude;
+                Toast.makeText(getActivity(),"Latitud: "+latitud+", Longitud: "+longitud,Toast.LENGTH_LONG).show();
+
 
                 veterinaria.put("nombre", nombrevete.getText().toString());
                 veterinaria.put("direccion", direccionvete.getText().toString());

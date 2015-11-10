@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/eteNombreDoctor"
         android:hint="Nombre y Apellidos"
+        android:inputType="textCapSentences"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:background="#FFFFFF"
@@ -98,6 +99,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/eteDiaInicio"
+            android:inputType="textCapCharacters"
             android:background="#FFFFFF"/>
         <TextView
             android:layout_width="wrap_content"
@@ -107,6 +109,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/eteDiaFin"
+            android:inputType="textCapCharacters"
             android:background="#FFFFFF"/>
     </LinearLayout>
 
@@ -138,6 +141,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/eteHoraInicio"
+            android:inputType="number"
             android:background="#FFFFFF"/>
         <TextView
             android:layout_width="wrap_content"
@@ -147,7 +151,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/eteHoraFin"
-            android:background="#FFFFFF"/>
+            android:background="#FFFFFF"
+            android:inputType="number"/>
     </LinearLayout>
 
     <LinearLayout

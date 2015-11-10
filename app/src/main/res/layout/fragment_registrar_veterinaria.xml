@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/eteNombreVet"
         android:hint="Nombre"
+        android:inputType="textPersonName"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:background="#FFFFFF"
@@ -56,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/eteDireccionVet"
+        android:inputType="textPersonName"
         android:hint="Dirección"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
@@ -75,6 +77,7 @@
         android:id="@+id/eteDistritoVet"
         android:hint="Distrito"
         android:background="#FFFFFF"
+        android:inputType="textPersonName"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"/>
     <Button
@@ -96,6 +99,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:background="#FFFFFF"
+        android:inputType="number"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"/>
 
@@ -125,16 +129,19 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
+            android:inputType="textCapCharacters"
             android:id="@+id/eteDiaInicioVet"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" a "/>
+            android:text=" a "
+            />
         <EditText
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
-            android:id="@+id/eteDiaFinVet"/>
+            android:id="@+id/eteDiaFinVet"
+            android:inputType="textCapCharacters"/>
     </LinearLayout>
 
     <TextView
@@ -163,6 +170,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/eteHoraInicioVet"
+            android:inputType="number"
             android:background="#FFFFFF"/>
         <TextView
             android:layout_width="wrap_content"
@@ -172,6 +180,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/eteHoraFinVet"
+            android:inputType="number"
             android:background="#FFFFFF"/>
     </LinearLayout>
 

@@ -15,8 +15,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.lang.reflect.Array;
 import java.util.List;
@@ -43,23 +49,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        //agregar tu ubicacion actual
+
         mMap.setMyLocationEnabled(true);
 
-        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Veterinaria");
+        query.findInBackground(new FindCallback<ParseObject>() {
             @Override
-            public void onMapLongClick(LatLng latLng) {
-                Intent intent = getIntent();
-                intent.putExtra("latitud", latLng.latitude);
-                intent.putExtra("longitud",latLng.longitude);
-                setResult(RESULT_OK, intent);
-                onBackPressed();
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    for (ParseObject object : objects) {
+                        ParseGeoPoint geo = (ParseGeoPoint) object.get("location");
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(geo.getLatitude(), geo.getLongitude()))
+                                .title(object.get("nombre").toString())
+                                .snippet(object.get("telefono").toString())
+                                );
+                    }
+
+                }
             }
         });
+
+
 
     }
 

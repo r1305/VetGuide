@@ -2,8 +2,6 @@ package com.example.user.vetguide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,7 +12,6 @@ import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
 public class PedirCitaActivity extends AppCompatActivity {
@@ -72,7 +69,7 @@ public class PedirCitaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast t = Toast.makeText(PedirCitaActivity.this, "Reserva cancelada", Toast.LENGTH_SHORT);
                 t.show();
-                Intent i3 = new Intent(PedirCitaActivity.this, DetellaVeterinaria.class);
+                Intent i3 = new Intent(PedirCitaActivity.this, VeterinariaDetalles.class);
                 startActivity(i3);
             }
         });

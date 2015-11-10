@@ -15,9 +15,14 @@ public class UseParse extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        Parse.enableLocalDatastore(this);
+
         Parse.initialize(this, getResources().getString(R.string.parse_app_id), getResources().getString(R.string.parse_client_key));
-        ParseFacebookUtils.initialize(this.getApplicationContext());
+        ParseFacebookUtils.initialize(this);
+        ParseUser.enableAutomaticUser();
+        ParseACL defaultACL = new ParseACL();
+        // Optionally enable public read access.
+        // defaultACL.setPublicReadAccess(true);
+        ParseACL.setDefaultACL(defaultACL, true);
 
 
 

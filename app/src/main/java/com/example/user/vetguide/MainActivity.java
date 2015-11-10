@@ -10,11 +10,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
-
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,11 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button FbLoginBtn;
     Button registrar;
     Button login;
-    boolean miniparse=true;
     EditText usernameI, passwordI;
-
-    // Your Facebook APP ID
-    private static String APP_ID = "416312735230224"; // Replace your App ID here
 
 
     @Override

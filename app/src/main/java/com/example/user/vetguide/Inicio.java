@@ -12,39 +12,47 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Inicio extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     ParseQuery<ParseObject> query = ParseQuery.getQuery("Veterinaria");
     VeterinariaAdapter adapter;
     List<ParseObject> lista = new ArrayList<>();//lo cambie por un ParseObject
     String idUsuario;
-    @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.navigation)
     NavigationView nav;
-    @Bind(R.id.drawer_layout)
     DrawerLayout dl;
+    CircleImageView img;
+    TextView txt_nav;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-        ButterKnife.bind(this);
 
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.menu);
+
+
+
         setSupportActionBar(toolbar);
+
+        nav=(NavigationView)findViewById(R.id.navigation);
+        dl=(DrawerLayout)findViewById(R.id.drawer_layout);
+
 
         getSupportActionBar().setHomeButtonEnabled(true);
         toolbar.animate();
@@ -57,6 +65,39 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
                 }
             }
         });
+        ParseUser u=ParseUser.getCurrentUser();
+        Toast.makeText(this,"Bienvenido "+u.getString("nombre"),Toast.LENGTH_LONG).show();
+        img=(CircleImageView)findViewById(R.id.nav_img);//esto no encuentra
+        txt_nav=(TextView)findViewById(R.id.nav_header);//esto no encuentra
+        //son del nav_header
+        txt_nav.setText(u.getString("nombre"));
+        //ParseFile applicantResume = (ParseFile)currentUser.getParseFile("foto");
+
+//        applicantResume.getDataInBackground(new GetDataCallback() {
+//            public void done(byte[] data, ParseException e) {
+//                if (e == null) {
+//
+//                    Toast.makeText(Inicio.this,"La foto si carga",Toast.LENGTH_LONG).show();
+//
+//                    //img.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
+//
+//
+//                } else {
+//                    // something went wrong
+//
+//
+//                }
+//            }
+//        });
+
+//        img.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(Inicio.this, DetallePerfil.class);
+//                startActivity(i);
+//            }
+//        });
+
         RecyclerView rvi=(RecyclerView)findViewById(R.id.my_recycler_view);
         rvi.setLayoutManager(new LinearLayoutManager(this));
 
@@ -86,7 +127,7 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
 
                ParseObject ve = (ParseObject)v.getTag();
                 Log.e("Click", ve.getString("nombre"));
-                Intent i = new Intent(Inicio.this, DetellaVeterinaria.class);
+                Intent i = new Intent(Inicio.this, VeterinariaDetalles.class);
                 String idvet=ve.getObjectId();
                 i.putExtra("idvet",idvet);
                 i.putExtra("idUsuario",idUsuario);
