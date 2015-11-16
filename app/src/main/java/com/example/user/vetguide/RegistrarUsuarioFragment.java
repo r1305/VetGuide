@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,25 +15,33 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.Bind;
 import clases.BitmapToByteArray;
+import clases.DownloadImageTask;
 import clases.Utils;
 
 public class RegistrarUsuarioFragment extends Fragment {
     Button butSiguiente, butCancelar;
     EditText nombre, contra, correo,  apellido;
-    String objectid;
     ParseUser user;
     @Bind(R.id.imageView)
     ImageView img;
 
     private static final int PICK_IMAGE = 2000;
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -49,7 +58,7 @@ public class RegistrarUsuarioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.registrarusuario_fragment, container, false);
         img=(ImageView)view.findViewById(R.id.imageView);
         final Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
@@ -88,12 +97,7 @@ public class RegistrarUsuarioFragment extends Fragment {
 
                                     Toast t = Toast.makeText(getContext(), "Registro de datos Correcto", Toast.LENGTH_SHORT);
                                     t.show();
-
-
                                     Intent i = new Intent(getActivity(), RegistroMascotaActivity.class);
-                                    //  objectid = user.getObjectId();
-                                    //   i.putExtra("userId", objectid);
-
                                     startActivity(i);
                                     getActivity().finish();
 

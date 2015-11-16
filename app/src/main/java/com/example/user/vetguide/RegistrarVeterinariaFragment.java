@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,18 +25,25 @@ import com.parse.SaveCallback;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class RegistrarVeterinariaFragment extends Fragment {
 
     Button butSiguiente, butCancelar, butMapa;
     EditText nombrevete, direccionvete, distritovete, telefonovete, diasinicio, diasfin, horasinicio, horasfin;
     ParseObject veterinaria;
     double latitud, longitud;
+    @Bind(R.id.fullday)
+    CheckBox check;
+    boolean fullday=false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_registrar_veterinaria, container, false);
+        ButterKnife.bind(this,view);
 
         butSiguiente = (Button) view.findViewById(R.id.buttonSiguiente3);
         butMapa = (Button) view.findViewById(R.id.buttonMapear);
@@ -48,6 +56,18 @@ public class RegistrarVeterinariaFragment extends Fragment {
         diasfin = (EditText) view.findViewById(R.id.eteDiaFinVet);
         horasinicio = (EditText) view.findViewById(R.id.eteHoraInicioVet);
         horasfin = (EditText) view.findViewById(R.id.eteHoraFinVet);
+
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                horasinicio.setText("00:00");
+                horasfin.setText("00:00");
+                fullday=true;
+            }
+        });
+
+
+
 
         butSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +86,8 @@ public class RegistrarVeterinariaFragment extends Fragment {
                 veterinaria.put("telefono", Integer.parseInt(telefonovete.getText().toString()));
                 veterinaria.put("dias_atencion", diasinicio.getText().toString() + "-" + diasfin.getText().toString());
                 veterinaria.put("horas_atencion", horasinicio.getText().toString() + "-" + horasfin.getText().toString());
+
+                veterinaria.put("abierto_siempre",fullday);
                 ParseGeoPoint p=new ParseGeoPoint(latitud,longitud);
                 veterinaria.put("location",p);
 
@@ -115,7 +137,6 @@ public class RegistrarVeterinariaFragment extends Fragment {
 
         return view;
     }
-
 
     public LatLng getLocationFromAddress(Context context,String strAddress) {
 

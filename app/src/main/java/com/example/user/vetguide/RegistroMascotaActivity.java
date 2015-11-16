@@ -29,16 +29,10 @@ public class RegistroMascotaActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-
-                Intent i0 = getIntent();
-               // apoderado= i0.getStringExtra("userId");
-
-                Intent i = new Intent(RegistroMascotaActivity.this,RegistrarDatosMascotaActivity.class);
-                i.putExtra("mascota",iamd.mThumbIds[position]);
-                i.putExtra("tipoMascota", tipoMascota[position]);
-              //  i.putExtra("usuario", apoderado);
-
-                startActivity(i);
+            Intent i = new Intent(RegistroMascotaActivity.this,RegistrarDatosMascotaActivity.class);
+            i.putExtra("mascota",iamd.mThumbIds[position]);
+            i.putExtra("tipoMascota", tipoMascota[position]);
+            startActivity(i);
             }
         });
     }

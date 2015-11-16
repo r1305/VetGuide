@@ -41,6 +41,7 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
     DrawerLayout dl;
     CircleImageView img;
     TextView txt_nav;
+    RecyclerView rvi;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -56,13 +57,9 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
         img = (CircleImageView)headerLayout.findViewById(R.id.nav_img);
         txt_nav=(TextView)headerLayout.findViewById(R.id.nav_txt);
 
-
-
         setSupportActionBar(toolbar);
 
-
         dl=(DrawerLayout)findViewById(R.id.drawer_layout);
-
 
         getSupportActionBar().setHomeButtonEnabled(true);
         toolbar.animate();
@@ -76,24 +73,17 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
         ParseUser u=ParseUser.getCurrentUser();
-        Toast.makeText(this,"Bienvenido "+u.getString("nombre"),Toast.LENGTH_LONG).show();
 
-        //son del nav_header
         txt_nav.setText(u.getString("nombre"));
         ParseFile applicantResume = (ParseFile)u.getParseFile("foto");
 
-        applicantResume.getDataInBackground(new GetDataCallback() {
+         applicantResume.getDataInBackground(new GetDataCallback() {
             public void done(byte[] data, ParseException e) {
                 if (e == null) {
 
-                    Toast.makeText(Inicio.this,"La foto si carga",Toast.LENGTH_LONG).show();
-
                     img.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
 
-
                 } else {
-                    // something went wrong
-
 
                 }
             }
@@ -107,7 +97,7 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
             }
         });
 
-        RecyclerView rvi=(RecyclerView)findViewById(R.id.my_recycler_view);
+        rvi=(RecyclerView)findViewById(R.id.my_recycler_view);
         rvi.setLayoutManager(new LinearLayoutManager(this));
 
         Intent intentando=getIntent();
@@ -176,8 +166,37 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
                 return true;
 
             case R.id.emergencia:
+                adapter=new VeterinariaAdapter(lista);
+
+                rvi.setAdapter(adapter);
 
                 Toast.makeText(this,"Emergencia",Toast.LENGTH_LONG).show();
+                query.whereEqualTo("abierto_siempre", true);
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        lista.clear();
+                        for (ParseObject object : objects) {
+                            lista.add(object);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
+                adapter.SetOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        ParseObject ve = (ParseObject) v.getTag();
+                        Log.e("Click", ve.getString("nombre"));
+                        Intent i = new Intent(Inicio.this, VeterinariaDetalles.class);
+                        String idvet = ve.getObjectId();
+                        i.putExtra("idvet", idvet);
+                        i.putExtra("idUsuario", idUsuario);
+                        startActivity(i);
+                    }
+                });
+                dl.closeDrawers();
                 return true;
 
             case R.id.mapa:

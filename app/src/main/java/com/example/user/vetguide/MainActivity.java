@@ -9,13 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
+
+import clases.DownloadImageTask;
+import clases.Utils;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     Button registrar;
     Button login;
     EditText usernameI, passwordI;
+
+
 
 
     @Override
@@ -57,12 +68,11 @@ public class MainActivity extends AppCompatActivity {
                             } else if (user.isNew()) {
 
                                 Log.d("MyApp", "User signed up and logged in through Facebook!");
-
-                                Toast t=Toast.makeText(MainActivity.this,"Usuario logeado",Toast.LENGTH_LONG);
-                                t.show();
-
-                                Intent intent = new Intent(MainActivity.this, RegistroMascotaActivity.class);
+                                Utils.parseUser=user;
+                                Intent intent = new Intent(MainActivity.this, RegistrarUsuarioDesdeFacebook.class);
                                 startActivity(intent);
+                                Utils.user.setFacebook(true);
+                                MainActivity.this.finish();
 
 
                             } else {
@@ -70,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("MyApp", "User logged in through Facebook!");
 
 
-                                Intent intent = new Intent(MainActivity.this, RegistroMascotaActivity.class);
+                                Intent intent = new Intent(MainActivity.this, Inicio.class);
                                 startActivity(intent);
-                                Toast t = Toast.makeText(MainActivity.this, "Login de Fb correcto", Toast.LENGTH_LONG);
-                                t.show();
+                                Utils.user.setFacebook(true);
+                                MainActivity.this.finish();
 
                             }
                         } else {
@@ -103,14 +113,14 @@ public class MainActivity extends AppCompatActivity {
                 ParseUser.logInInBackground(u, p, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException e) {
-                        if (e==null){
+                        if (e == null) {
 
 
-                            Intent i = new Intent(getBaseContext(),Inicio.class);
+                            Intent i = new Intent(getBaseContext(), Inicio.class);
                             i.putExtra("idUsuario", user.getObjectId());
                             startActivity(i);
                         } else {
-                            Toast t = Toast.makeText(getBaseContext(),"Login Incorrecto",Toast.LENGTH_SHORT);
+                            Toast t = Toast.makeText(getBaseContext(), "Login Incorrecto", Toast.LENGTH_SHORT);
                             t.show();
                         }
                     }

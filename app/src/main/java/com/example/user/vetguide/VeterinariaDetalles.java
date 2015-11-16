@@ -13,6 +13,9 @@ import com.parse.FindCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.List;
 
 public class VeterinariaDetalles extends AppCompatActivity {
@@ -23,6 +26,7 @@ public class VeterinariaDetalles extends AppCompatActivity {
     Button pedircita, pedirservicio;
     String nombrevet;
     String idUsuario;
+    JSONArray serv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,8 @@ public class VeterinariaDetalles extends AppCompatActivity {
         idUsuario = i0.getStringExtra("idUsuario");
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Veterinaria");
+
+
         query.whereEqualTo("objectId", codigovetdetalle);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -74,6 +80,7 @@ public class VeterinariaDetalles extends AppCompatActivity {
                         direccionvetdetalle.setText(direccionvet);
                         telefonovetdetalle.setText(telefonovet.toString());
                         horariovetdetalle.setText(horasvet);
+                        serv=o.getJSONArray("ServiciosBrindados");
                     }
                 }
             }
@@ -81,8 +88,9 @@ public class VeterinariaDetalles extends AppCompatActivity {
 
 
 
+
         ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Doctor");
-        query2.whereEqualTo("contratoVeterinaria",codigovetdetalle);
+        query2.whereEqualTo("contratoVeterinaria", codigovetdetalle);
         query2.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, com.parse.ParseException e) {
@@ -114,12 +122,21 @@ public class VeterinariaDetalles extends AppCompatActivity {
             }
         });
 
+
+
         pedirservicio = (Button)findViewById(R.id.buttonServicios);
         pedirservicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast t = Toast.makeText(VeterinariaDetalles.this,"Funcionalidad pronto",Toast.LENGTH_SHORT);
-                t.show();
+                for(int i=0;i<serv.length();i++){
+                    try {
+                        Toast.makeText(VeterinariaDetalles.this,serv.get(i).toString(),Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
             }
         });
 

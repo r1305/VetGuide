@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -107,6 +106,11 @@
         <activity
             android:name=".DetallePerfil"
             android:label="@string/title_activity_detalle_perfil"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".RegistrarUsuarioDesdeFacebook"
+            android:label="@string/title_activity_registrar_usuario_desde_facebook"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

@@ -7,7 +7,8 @@ import com.parse.ParseUser;
  */
 public class Utils {
 
-
+    public static User user = new User();
+    public static ParseUser parseUser = null;
     public static byte[] imageBuffer = null;
     public static boolean bufferingImage = false;
 

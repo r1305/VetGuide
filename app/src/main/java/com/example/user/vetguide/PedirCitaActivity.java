@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 public class PedirCitaActivity extends AppCompatActivity {
@@ -28,10 +29,10 @@ public class PedirCitaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         tviNombreVet=(TextView)findViewById(R.id.tviNombreVetCita);
-
+        ParseUser u=ParseUser.getCurrentUser();
         Intent i=getIntent();
         String nomb=i.getStringExtra("nombreVetCita");
-        idUsuario = i.getStringExtra("idUsuario");
+        idUsuario = u.getObjectId();
         idvet = i.getStringExtra("idVet");
 
         tviNombreVet.setText(nomb);
