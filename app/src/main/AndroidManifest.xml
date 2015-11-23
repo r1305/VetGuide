@@ -87,6 +87,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".CalendarioActivity"
+            android:label="Citas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

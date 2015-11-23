@@ -161,7 +161,8 @@ public class Inicio extends AppCompatActivity implements NavigationView.OnNaviga
                 return true;
             case R.id.calendario:
 
-                Toast.makeText(this,"Calendario",Toast.LENGTH_LONG).show();
+                Intent j=new Intent(this,CalendarioActivity.class);
+                startActivity(j);
                 dl.closeDrawers();
                 return true;
 
